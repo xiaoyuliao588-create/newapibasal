@@ -69,7 +69,7 @@ export function PublicHeader(props: PublicHeaderProps) {
     showLanguageSwitcher = true,
     logo: customLogo,
     siteName: customSiteName,
-    homeUrl = '/',
+    homeUrl = '/dashboard',
     showAuthButtons = true,
     showNotifications = true,
   } = props
@@ -102,9 +102,10 @@ export function PublicHeader(props: PublicHeaderProps) {
   let logoContent: ReactNode = (
     <HeaderLogo
       src={systemLogo}
+      alt={displaySiteName}
       loading={loading}
       logoLoaded={logoLoaded}
-      className='size-full rounded-lg object-contain'
+      className='size-full'
     />
   )
   if (customLogo) logoContent = customLogo
@@ -218,21 +219,12 @@ export function PublicHeader(props: PublicHeaderProps) {
             <div className='@container/system-brand flex min-w-0 flex-1 items-center gap-1 lg:min-w-36'>
               <Link
                 to={homeUrl}
+                aria-label={displaySiteName}
                 className='group flex min-w-0 items-center gap-2.5'
               >
-                <div className='flex size-7 shrink-0 items-center justify-center transition-all duration-300 group-hover:scale-105'>
+                <div className='flex h-8 w-28 shrink-0 items-center justify-center transition-all duration-300 group-hover:scale-105 sm:h-10 sm:w-36'>
                   {logoContent}
                 </div>
-                <span
-                  className='max-w-48 truncate text-sm font-semibold tracking-tight'
-                  title={displaySiteName}
-                >
-                  {loading ? (
-                    <Skeleton className='h-4 w-16' />
-                  ) : (
-                    displaySiteName
-                  )}
-                </span>
               </Link>
               <SystemUpdateAction presentation='version' />
             </div>

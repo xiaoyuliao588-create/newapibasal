@@ -55,17 +55,17 @@ export function useTopNavLinks(): TopNavLink[] {
     )
   }, [status])
 
-  // Documentation link (may be external)
-  const docsLink: string | undefined = status?.docs_link as string | undefined
+  // Documentation navigation is disabled for basal.
+  // const docsLink: string | undefined = status?.docs_link as string | undefined
 
   const isAuthed = !!auth?.user
 
   const links: TopNavLink[] = []
 
-  // Home
-  if (modules?.home !== false) {
-    links.push({ title: t('Home'), href: '/' })
-  }
+  // Home navigation is disabled; the root route opens the console.
+  // if (modules?.home !== false) {
+  //   links.push({ title: t('Home'), href: '/' })
+  // }
 
   // Console -> /dashboard (new console path)
   if (modules?.console !== false) {
@@ -79,21 +79,21 @@ export function useTopNavLinks(): TopNavLink[] {
     links.push({ title: t('Model Square'), href: '/pricing', requiresAuth })
   }
 
-  // Rankings
-  const rankings = modules?.rankings
-  if (rankings && typeof rankings === 'object' && rankings.enabled) {
-    const requiresAuth = rankings.requireAuth && !isAuthed
-    links.push({ title: t('Rankings'), href: '/rankings', requiresAuth })
-  }
+  // Rankings navigation is disabled for basal.
+  // const rankings = modules?.rankings
+  // if (rankings && typeof rankings === 'object' && rankings.enabled) {
+  //   const requiresAuth = rankings.requireAuth && !isAuthed
+  //   links.push({ title: t('Rankings'), href: '/rankings', requiresAuth })
+  // }
 
-  // Docs (supports external links)
-  if (modules?.docs !== false) {
-    if (docsLink) {
-      links.push({ title: t('Docs'), href: docsLink, external: true })
-    } else {
-      links.push({ title: t('Docs'), href: '/docs' })
-    }
-  }
+  // Docs navigation is disabled for basal (including external links).
+  // if (modules?.docs !== false) {
+  //   if (docsLink) {
+  //     links.push({ title: t('Docs'), href: docsLink, external: true })
+  //   } else {
+  //     links.push({ title: t('Docs'), href: '/docs' })
+  //   }
+  // }
 
   // About
   if (modules?.about !== false) {

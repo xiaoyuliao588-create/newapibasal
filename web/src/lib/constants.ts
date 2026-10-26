@@ -21,8 +21,15 @@ For commercial licensing, please contact support@quantumnous.com
  */
 
 // System Configuration Defaults
-export const DEFAULT_SYSTEM_NAME = 'New API'
+export const DEFAULT_SYSTEM_NAME = 'basal'
 export const DEFAULT_LOGO = '/logo.png'
+export const DEFAULT_DARK_LOGO = '/logoy.png'
+
+/** Keep the local brand when an uncustomized backend or old cache is used. */
+export function getSystemDisplayName(name?: string): string {
+  const value = name?.trim()
+  return !value || /^new\s*api$/i.test(value) ? DEFAULT_SYSTEM_NAME : value
+}
 
 // LocalStorage Keys
 export const STORAGE_KEYS = {

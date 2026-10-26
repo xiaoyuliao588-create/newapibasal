@@ -5878,6 +5878,7 @@
     "smtp.example.com": "smtp.example.com",
     "socks5://user:pass@host:port": "socks5://user:pass@host:port",
     "Soft Errors": "ソフトエラー",
+    "Software customized and developed by basal.": "basal 社がカスタマイズ・二次開発したソフトウェア。",
     "Some channels failed: {{errorMsg}}": "一部のチャネルが失敗しました：{{errorMsg}}",
     "Some files could not be deleted ({{failed}}/{{total}})": "一部のファイルを削除できませんでした（{{failed}}/{{total}}）",
     "Some matching models are hidden or have no available channel.": "一致するモデルの一部は非表示、または利用可能なチャネルがありません。",

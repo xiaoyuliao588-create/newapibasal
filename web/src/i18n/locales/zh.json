@@ -5878,6 +5878,7 @@
     "smtp.example.com": "smtp.example.com",
     "socks5://user:pass@host:port": "socks5://user:pass@host:port",
     "Soft Errors": "软错误",
+    "Software customized and developed by basal.": "由 basal 公司二次开发的软件。",
     "Some channels failed: {{errorMsg}}": "部分渠道失败：{{errorMsg}}",
     "Some files could not be deleted ({{failed}}/{{total}})": "部分文件删除失败（{{failed}}/{{total}}）",
     "Some matching models are hidden or have no available channel.": "部分匹配模型已隐藏或暂无可用渠道。",

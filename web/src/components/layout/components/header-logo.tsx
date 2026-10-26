@@ -16,13 +16,14 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 For commercial licensing, please contact support@quantumnous.com
 */
+import { DEFAULT_LOGO, DEFAULT_DARK_LOGO } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
 interface HeaderLogoProps {
   src: string
   alt?: string
-  loading: boolean
-  logoLoaded: boolean
+  loading?: boolean
+  logoLoaded?: boolean
   className?: string
 }
 
@@ -33,16 +34,32 @@ interface HeaderLogoProps {
 export function HeaderLogo({
   src,
   alt = 'logo',
-  loading,
-  logoLoaded,
+  loading = false,
+  logoLoaded = true,
   className,
 }: HeaderLogoProps) {
+  const isBrandLogo = src === DEFAULT_LOGO || src === DEFAULT_DARK_LOGO
+
+  if (isBrandLogo) {
+    return (
+      <span
+        className={cn(
+          'brand-logo relative inline-block h-8 w-28 shrink-0 overflow-hidden transition-opacity duration-200',
+          !loading && logoLoaded ? 'opacity-100' : 'opacity-0',
+          className
+        )}
+      >
+        <img src={src} alt={alt} className='brand-logo-image' />
+      </span>
+    )
+  }
+
   return (
     <img
       src={src}
       alt={alt}
       className={cn(
-        'h-6 w-6 rounded-full transition-opacity duration-200',
+        'h-8 w-28 object-contain transition-opacity duration-200',
         !loading && logoLoaded ? 'opacity-100' : 'opacity-0',
         className
       )}

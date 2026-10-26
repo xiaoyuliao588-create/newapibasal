@@ -47,6 +47,18 @@ For commercial licensing, please contact support@quantumnous.com
 
 /* Shiki dual themes: token colors follow dark theme (pre background stays `bg-background` on the block) */
 @layer components {
+  /* Display the wordmark, excluding the square artwork's outer margins.
+     Keep the original light/dark assets intact and preserve their proportions. */
+  .brand-logo-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 156.25%;
+    max-width: none;
+    height: auto;
+    transform: translate(-50%, -50%);
+  }
+
   .shiki span {
     color: var(--shiki-light) !important;
     font-style: var(--shiki-light-font-style) !important;
