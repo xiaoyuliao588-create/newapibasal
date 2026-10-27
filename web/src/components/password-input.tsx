@@ -46,6 +46,8 @@ export function PasswordInput({
         ref={ref}
         disabled={disabled}
         {...props}
+        // Edge adds its own reveal button; this component provides one already.
+        className='pe-9 [&::-ms-reveal]:hidden'
       />
       <Button
         type='button'
